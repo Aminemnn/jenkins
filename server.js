@@ -5,7 +5,11 @@ app.get("/", (req, res) => {
   res.send("Hello, Jenkins CI/CD!");
 });
 
-// لا تشغل السيرفر مباشرة عند التصدير
+app.get("/new-feature", (req, res) => {
+  res.send("🚀 New feature deployed via Jenkins!");
+});
+
+
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
