@@ -8,7 +8,7 @@ test("GET / should return 'Hello, Jenkins CI/CD!'", async () => {
 });
 
 test("GET /new-feature should return '🚀 New feature deployed via Jenkins!'", async () => {
-  const res = await request(server).get("/new-feature");
+  const res = await request(app).get("/new-feature");
   expect(res.text).toBe("🚀 New feature deployed via Jenkins!");
   expect(res.statusCode).toBe(200);
 });
