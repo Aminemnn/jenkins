@@ -17,10 +17,16 @@ pipeline {
                 bat 'npm test'
             }
         }
+        stage('Check PM2') {
+            steps {
+                bat 'pm2 -v'
+            }
+        }
         stage('Deploy') {
             steps {
-                echo 'Deployment step (يمكنك تشغيل التطبيق هنا)'
-                bat 'pm2 restart server.js'
+                echo 'Deployment step'
+                bat 'pm2 restart server || pm2 start server.js'
+                bat 'pm2 list'
             }
         }
     }
